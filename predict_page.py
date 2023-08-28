@@ -2,6 +2,9 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
 
 
 def load_model():
@@ -15,7 +18,7 @@ pkData = load_model()
 classifier = pkData['model']
 le_pitchType = pkData['le_pitchType']
 le_OutcomeDescription = pkData['le_OutcomeDescription']
-MinMaxScaler = pkData['MinMaxScaler']
+scaler = pkData['MinMaxScaler']
 
 
 def show_predict_page():
@@ -408,7 +411,7 @@ def show_predict_page():
 
         X[:,5] = le_OutcomeDescription.transform(X[:,5])
         X[:,2] = le_pitchType.transform(X[:,2])
-        X[:,3] = MinMaxScaler.transform(X[:,3].reshape(1, -1))
+        X[:,3] = scaler.transform(X[:,3].reshape(1, -1))
         X = X.astype(float)
 
         prediction = classifier.predict(X)
@@ -419,7 +422,7 @@ def show_predict_page():
 
         pred = classifier.predict_proba(X)[0][prediction]
 
-        st.write("###### Probability: " + str(pred[0].round(2)))
+        st.subheader("Probability: " + str(pred[0].round(2)))
 
         
         

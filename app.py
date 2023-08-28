@@ -4,15 +4,15 @@ from explore_page import show_explore_page
 from details_page import show_details_page
 
 
-
-
+st.title("Caught or Not: Will the runner be safe at second?")
 show_predict_page()
-st.write("##  ")
+
+
 
 
 show_explore_page()
 
-st.write("##  ")
+
 
 
 show_details_page()

@@ -22,7 +22,6 @@ scaler = pkData['MinMaxScaler']
 
 
 def show_predict_page():
-    st.title("Caught or Not: Will the runner be safe at second?")
     st.write("""##### Predict if a runner would be safe or out if they attempted to steal second in a given scenario.""")
     st.write("""## Set up your scenario:""")
     

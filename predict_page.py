@@ -117,7 +117,7 @@ def show_predict_page():
     if  x != '---':
         cspApp = 1 - float(x)
     elif x == '---':
-        cspApp = st.slider("% of runners thrown out", 0.0,1.0, .5 )
+        cspApp = 1 - st.slider("% of runners thrown out", 0.0,1.0, .5 )
 
     
 

@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 def show_details_page():
-    st.write("## Details")
+    st.write("#### Details")
    
    
     st.write("This is the head of the cleaned data frame. There are six features and one label. This is before encoding and scaling was performed. \n")

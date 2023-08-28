@@ -22,12 +22,13 @@ scaler = pkData['MinMaxScaler']
 
 
 def show_predict_page():
-    st.write("""##### Predict if a runner would be safe or out if they attempted to steal second in a given scenario.""")
-    st.write("""## Set up your scenario:""")
+    st.write("## Caught or Not?")
+    st.write("""###### Predict if a runner would be safe or out if they attempted to steal second in a given scenario.""")
+   
     
 
 
-    catchersApp = [['A.J. Pierzynski', ': ',0.25],
+    catchersApp = [['A.J. Pierzynski', ': ',0.25], ["Custom Catcher" ': ', '---'],
     ['Wilson Ramos',': ', 0.37],
     ['David Ross',': ', 0.27],
     ['Hank Conger', ': ',0.19],
@@ -111,10 +112,17 @@ def show_predict_page():
         string=' '.join([str(item) for item in i]) + '%'
         catchersApp2.append(string)
 
-    cspApp = 1 - float(st.selectbox("Catcher (with percentage of runners they threw out in 2016)", catchersApp2)[-4:-1])
+    x = st.selectbox("Catcher (with percentage of runners succesfully thrown out at second in 2016)", catchersApp2)[-4:-1]
+
+    if  x != '---':
+        cspApp = 1 - float(x)
+    elif x == '---':
+        cspApp = st.slider("% of runners thrown out", 0.0,1.0, .5 )
+
+    
 
 
-    runnersApp = [['DJ LeMahieu',': ', 0.61],
+    runnersApp = [['DJ LeMahieu',': ', 0.61],["Custom Runner" ': ', '---'],
     ['Daniel Murphy',': ', 0.62],
     ['Trea Turner',': ', 0.85],
     ['Jose Altuve',': ', 0.75],
@@ -343,8 +351,14 @@ def show_predict_page():
         string=' '.join([str(item) for item in i]) + '%'
         runnersApp2.append(string)
 
-    spApp = st.selectbox("Runner (with stolen base percentage in 2016)", runnersApp2)[-4:-1]
+    y = st.selectbox("Runner (with percentage of succesfully stolen bases in 2016)", runnersApp2)[-4:-1]
 
+ 
+
+    if  y != '---':
+        spApp = float(y)
+    elif y == '---':
+        spApp = st.slider("% of bases succesfully stolen", 0.0,1.0, .5 )
 
 
    
@@ -357,7 +371,7 @@ def show_predict_page():
 
 
 
-    odAppNP = ['Dirt Ball', 'Strike Swinging', 'Strike Looking', 'Ball', 'Foul Tip'] 
+    odAppNP = [ 'Strike Swinging', 'Dirt Ball', 'Strike Looking', 'Ball', 'Foul Tip'] 
              
     
     
@@ -373,7 +387,7 @@ def show_predict_page():
 
 
     
-    pitchSpeedAPP = st.slider("Pitch Speed" , 70,100, 85 )
+    pitchSpeedAPP = st.slider("Pitch Speed (MPH)" , 70,100, 85 )
 
 
 
@@ -405,7 +419,7 @@ def show_predict_page():
 
     ok = st.button("Steal!")
     if ok:
-        #print(spApp,cspApp,pitchTypeApp,pitchSpeedAPP,pitchZoneApp,outcomeDescriptionApp)
+        
         X =np.array([[spApp,cspApp,pitchTypeApp,pitchSpeedAPP,pitchZoneApp,outcomeDescriptionApp]])
 
         X[:,5] = le_OutcomeDescription.transform(X[:,5])
@@ -415,13 +429,14 @@ def show_predict_page():
 
         prediction = classifier.predict(X)
         if prediction == 1:
-            st.subheader("Safe! Keep Stealing")
+            st.subheader("Safe! Keep on stealing...")
         if prediction == 0:
-            st.subheader("Out! Too slow!")
+            st.subheader("Out! Too slow...")
 
         pred = classifier.predict_proba(X)[0][prediction]
 
         st.subheader("Probability: " + str(pred[0].round(2)))
+
 
         
         

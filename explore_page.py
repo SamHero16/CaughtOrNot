@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 def show_explore_page():
-    st.write("# Background")
+    st.write("## Background")
     st.write(" This project combines pitch data as well as "
                 "2016 player stats to predict if a runner would be safe or thrown out when attempting to steal second (in 2016)."
                 " I wanted to create a predictor based on pitch data (ie. pitch speed, pitch type, pitch location, etc.), as well as catcher and runner data: all things that could be easily gathered after a pitch is thrown."

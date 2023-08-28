@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 def show_details_page():
-    st.title("Details")
-    #st.write("### A brief overview of the inner-working of the app.")
+    st.write("# Details")
+   
    
     st.write("This is the head of the cleaned data frame. There are six features and one label. This is before encoding and scaling was performed. \n")
     

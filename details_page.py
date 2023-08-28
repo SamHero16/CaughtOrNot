@@ -51,8 +51,8 @@ def show_details_page():
     st.write("#####  ")
     
     st.write("## Average F1 Score: 0.865")
-    st.write("## Average Accuracy: 0.902")
-    st.write("## Best F1 Score: 0.865")
+    st.write("## Average Accuracy: 0.779")
+    st.write("## Best F1 Score: 0.902")
     st.write("## Best Accuracy: 0.836")
 
     st.write("#  ")

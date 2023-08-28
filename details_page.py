@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 def show_details_page():
-    st.write("## Details")
+    st.title("Details")
     #st.write("### A brief overview of the inner-working of the app.")
    
     st.write("This is the head of the cleaned data frame. There are six features and one label. This is before encoding and scaling was performed. \n")
@@ -18,9 +18,9 @@ def show_details_page():
     st.write("- pitchSpeed: Speed of pitch at the plate. ")  
     st.write("- pitcZone: Location of pitch at the plate. Refer to 'Predict' for chart. ")  
     st.write("- outcomeDescription: Ball, Strike, Pitch Out, etc. ")  
-    st.write("######  ")
-    st.write("######  ")
-    st.write("######  ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
     st.write(" The data is imbalanced, with more data points of runners stealing succesfully than being caught stealing."
               " This mirrors real life, with around 75% of runners succesfully stealing second on a given attempt in 2016. ")
     st.image('outcomeHistogram.png',caption = "Outcome Histogram")
@@ -28,9 +28,9 @@ def show_details_page():
 
     st.write("We can see from this pairplot that this outcome is hard to predict, but it is possible with these features.")
     st.image('seabornPlot.png')
-    st.write("######  ")
-    st.write("######  ")
-    st.write("######  ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
 
     st.write("I settled on a logistic regression model, with 'liblinear' solver. My goal was to maximize the f1 score.  ")
 
@@ -48,14 +48,14 @@ def show_details_page():
 
     st.write("My model had an average accuracy of 0.779 (guessing 77.9% of the test set right), while the baseline had an average of 0.732.")
     st.write("Not bad for such an illusive thing to predict!")
-    st.write("#####  ")
+    st.write(" ")
     
     st.write("## Average F1 Score: 0.865")
     st.write("## Average Accuracy: 0.779")
     st.write("## Best F1 Score: 0.902")
     st.write("## Best Accuracy: 0.836")
 
-    st.write("#  ")
+    st.write(" ")
 
     st.write("A link to the jupyter notebook is here.")
 

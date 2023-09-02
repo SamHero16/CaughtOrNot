@@ -22,16 +22,16 @@ def show_explore_page():
 
     st.write("  A lot of challenges came from gathering and combining the multiple data sets."
              " An interesting problem I encountered was that Sports Radar does not include the names of their players, but just "
-              "a 'SportsRadarID'. This 'SportsRadarID' exists no where on the internet, except the costly Sports Radar API.  So to get the names of the players, I had to get trial-keys for the Sports Radar API,  "
+              "a 'SportsRadarID'. This 'SportsRadarID' exists nowhere on the internet, except the costly Sports Radar API.  So to get the names of the players, I had to get trial-keys for the Sports Radar API,  "
               "which only allows a certain number of requests.")
     
-    st.write("  Another issue that arose is that alot of the features that I had believed would be predictive were not. "
+    st.write("  Another issue that arose is that many of the features that I had believed would be predictive were not. "
              "At one point I was including runner speed, catcher 'rSB', batter and catcher handedness data, and more in my model; come to find out they are "
-             "not helpful at all. I also felt setback when my initial tests of my model did worse than just guessing the most popular outcome ('safe'). "
+             "not helpful at all. I also experienced a setback when my initial tests of my model did worse than guessing the most popular outcome ('safe'). "
              "But after a lot of tweaking, adjustment and testing, my model can do better than that baseline.")
     
     st.write(f' Stealing second base is a very hard thing to predict, and I realized the reality of that more and more as the project went along')
              
-    st.write(" I will also say that the Jupyter Notebook does not tell the full story of the trial and error. I cleaned it up so it was readable, but there were hours and hours of tweaking and testing different models, features, strategies to fill NA's, dealing with outliers, etc.")
+    st.write(" I will also say that the Jupyter Notebook does not tell the full story of the trial and error. I cleaned it up so it was readable, but there were hours of tweaking and testing different models, features, strategies to fill NA's, dealing with outliers, etc.")
     
     
